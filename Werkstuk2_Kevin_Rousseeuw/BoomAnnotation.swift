@@ -7,7 +7,22 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
-class BoomAnnotation: NSObject {
-
+class BoomAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    
+    var boom: Boom!
+    
+    override init() {
+        boom = Boom()
+        coordinate = CLLocationCoordinate2D()
+        
+    }
+    
+    init(boom: Boom, coordinaten: CLLocationCoordinate2D) {
+        self.boom = boom
+        self.coordinate = coordinaten
+    }
 }

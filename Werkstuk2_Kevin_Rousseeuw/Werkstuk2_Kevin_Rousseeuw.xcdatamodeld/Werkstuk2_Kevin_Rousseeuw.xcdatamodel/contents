@@ -8,11 +8,12 @@
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="landschap" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="omtrek" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="positie" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="soort" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="straat" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Boom" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Boom" positionX="-63" positionY="-18" width="128" height="210"/>
     </elements>
 </model>
