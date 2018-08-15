@@ -27,9 +27,7 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var geselecteerdeAnnotation: BoomAnnotation?
     var laatsteRefresh: Date?
     
-    // Om gemakkelijk records groter te maken
     var apiUrl: URL?
-    //var apiUrl = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +37,7 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         setLocalizedText()
         let url = NSLocalizedString("apiUrl", comment: "")
         self.apiUrl = URL(string: url)!
-        // Reference https://www.youtube.com/watch?v=UyiuX8jULF4
+
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
@@ -51,6 +49,11 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func refreshButtonClick(_ sender: Any) {
         
         refreshKaart()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func setLocalizedText() {
@@ -96,28 +99,6 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let allAnnotations = self.bomenMapView.annotations
         self.bomenMapView.removeAnnotations(allAnnotations)
-    }
-    
-    
-    
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        let locatie = locations[0]
-        
-        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
-        
-        let huidigeLocatie: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locatie.coordinate.latitude, locatie.coordinate.longitude)
-        
-        let regio: MKCoordinateRegion = MKCoordinateRegionMake(huidigeLocatie, span)
-        // eventueel locatie change niet forceren
-        self.bomenMapView.setRegion(regio, animated: true)
-        
-        self.bomenMapView.showsUserLocation = true
     }
     
     func getBomenData(){
@@ -242,6 +223,10 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.geselecteerdeAnnotation = view.annotation as? BoomAnnotation
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -255,9 +240,17 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        self.geselecteerdeAnnotation = view.annotation as? BoomAnnotation
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let locatie = locations[0]
+        
+        let span: MKCoordinateSpan = MKCoordinateSpanMake(0.01, 0.01)
+        
+        let huidigeLocatie: CLLocationCoordinate2D = CLLocationCoordinate2DMake(locatie.coordinate.latitude, locatie.coordinate.longitude)
+        
+        let regio: MKCoordinateRegion = MKCoordinateRegionMake(huidigeLocatie, span)
+        
+        self.bomenMapView.setRegion(regio, animated: true)
+        
+        self.bomenMapView.showsUserLocation = true
     }
-    
-    
 }

@@ -12,16 +12,6 @@ import MapKit
 
 class BoomAnnotation: MKPointAnnotation {
     
-    //var coordinate: CLLocationCoordinate2D
-    
     var boom: Boom!
     
-    /*override init() {
-        boom = Boom()
-        
-    }
-    
-    init(boom: Boom, coordinaten: CLLocationCoordinate2D) {
-        self.boom = boom
-    }*/
 }
