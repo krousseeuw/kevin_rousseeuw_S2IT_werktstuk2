@@ -4,7 +4,7 @@
         <attribute name="beplanting" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diameter_van_de_kroon" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="gemeente" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="hoogte" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="hoogte" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="landschap" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="omtrek" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>

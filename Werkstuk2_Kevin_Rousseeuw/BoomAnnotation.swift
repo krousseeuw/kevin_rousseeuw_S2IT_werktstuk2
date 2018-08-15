@@ -10,19 +10,18 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class BoomAnnotation: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
+class BoomAnnotation: MKPointAnnotation {
+    
+    //var coordinate: CLLocationCoordinate2D
     
     var boom: Boom!
     
-    override init() {
+    /*override init() {
         boom = Boom()
-        coordinate = CLLocationCoordinate2D()
         
     }
     
     init(boom: Boom, coordinaten: CLLocationCoordinate2D) {
         self.boom = boom
-        self.coordinate = coordinaten
-    }
+    }*/
 }

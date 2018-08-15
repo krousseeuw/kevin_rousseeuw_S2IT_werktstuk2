@@ -16,16 +16,63 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     // UI vars
     @IBOutlet weak var bomenMapView: MKMapView!
     @IBOutlet weak var laatsteWijzigingLabel: UILabel!
+    @IBOutlet weak var refreshBtn: UIButton!
+    @IBOutlet weak var laatsteRefreshLbl: UILabel!
     
     // other variables
     let manager = CLLocationManager()
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var geselecteerdeAnnotation: BoomAnnotation?
+    var laatsteRefresh: Date?
     
     // Om gemakkelijk records groter te maken
     var recordLimiet = 20
     var apiUrl: URL?
     //var apiUrl = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
+    
+    @IBAction func refreshButtonClick(_ sender: Any) {
+        laatsteRefresh = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        refreshKaart()
+        laatsteRefreshLbl.text = dateFormatter.string(from: laatsteRefresh!)
+    }
+    
+    func refreshKaart(){
+        
+        lockKnop()
+        mapLeegmaken()
+        getBomenData()
+        unlockKnop()
+    }
+    
+    func lockKnop() {
+        // Alle 'locks' voor de form tijdens uitvoering
+        refreshBtn.isEnabled = false
+    }
+    
+    func unlockKnop() {
+        // unlocks
+        refreshBtn.isEnabled = true
+    }
+    
+    func mapLeegmaken() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Boom")
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try self.managedContext.execute(batchDeleteRequest)
+            try self.managedContext.save()
+        } catch {
+            print("error in refresh")
+        }
+        
+        let allAnnotations = self.bomenMapView.annotations
+        self.bomenMapView.removeAnnotations(allAnnotations)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +86,8 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        refreshKaart()
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,9 +132,11 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
                                 boom.positie = (fields["positie"] as? String)
                                 boom.beplanting = (fields["omtrek"] as? String)
                                 boom.omtrek = (fields["omtrek"] as! Int16)
-                                boom.hoogte = (fields["hoogte"] as? NSDecimalNumber)!
-                                boom.diameter_van_de_kroon = (fields["diameter_van_de_kroon"] as? Int16)!
+                                boom.hoogte = (fields["hoogte"] as? String)
                                 
+                                if fields["diameter_van_de_kroon"] != nil {
+                                    boom.diameter_van_de_kroon = (fields["diameter_van_de_kroon"] as? Int16)!
+                                }
                                 self.appDelegate.saveContext()
                             }
                         }
@@ -121,6 +172,9 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             let boomAnno = BoomAnnotation()
                             boomAnno.coordinate = placemark.location!.coordinate
                             boomAnno.boom = boom
+                            var soortDelen = boom.soort?.components(separatedBy: "\n")
+                            boomAnno.title = soortDelen?[0]
+                            if (soortDelen?.count)! > 1 { boomAnno.subtitle = soortDelen?[1] }
                             
                             DispatchQueue.main.async {
                                 self.bomenMapView.addAnnotation(boomAnno)
@@ -136,21 +190,24 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {return nil}
         
         let reuseId = "pin"
         
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.animatesDrop = true
-            let calloutButton = UIButton(type: .detailDisclosure)
-            pinView!.rightCalloutAccessoryView = calloutButton
-            pinView!.sizeToFit()
+        var pinView: MKAnnotationView?
+        if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) {
+            pinView = dequeueView
+            pinView?.annotation = annotation
         }
         else {
-            pinView!.annotation = annotation
+            pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let pinView = pinView {
+            pinView.canShowCallout = true
+            pinView.image = UIImage(named: "PixelBoom")
         }
         
         return pinView
@@ -162,17 +219,22 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
     }
     
-    
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
+        if segue.identifier == "naarDetail" {
+            if let detailVC = segue.destination as? BoomDetailViewController {
+                detailVC.boom = geselecteerdeAnnotation?.boom
+            }
+        }
     }
     
-
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.geselecteerdeAnnotation = view.annotation as? BoomAnnotation
+    }
+    
+    
 }
