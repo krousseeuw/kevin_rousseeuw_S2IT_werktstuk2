@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F35A042212470580065CFF4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F35A044212470580065CFF4 /* Localizable.strings */; };
 		3F5029FA211DE76900098161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5029F9211DE76900098161 /* AppDelegate.swift */; };
 		3F5029FC211DE76900098161 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5029FB211DE76900098161 /* ViewController.swift */; };
 		3F5029FF211DE76900098161 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5029FD211DE76900098161 /* Main.storyboard */; };
@@ -17,10 +18,16 @@
 		3F6F793B2120B4A300E855DB /* BomenKaartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F793A2120B4A300E855DB /* BomenKaartViewController.swift */; };
 		3F6F793D2120B4B200E855DB /* BoomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F793C2120B4B200E855DB /* BoomDetailViewController.swift */; };
 		3F6F793F2120B50D00E855DB /* BoomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6F793E2120B50D00E855DB /* BoomAnnotation.swift */; };
-		B3C4592F21246BCF00A2E51C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C4592E21246BCF00A2E51C /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F35A03E212470000065CFF4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		3F35A03F212470000065CFF4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3F35A0402124700A0065CFF4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		3F35A0412124700A0065CFF4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3F35A043212470580065CFF4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F35A045212470600065CFF4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F35A046212470620065CFF4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F5029F6211DE76900098161 /* Werkstuk2_Kevin_Rousseeuw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Werkstuk2_Kevin_Rousseeuw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5029F9211DE76900098161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F5029FB211DE76900098161 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +40,6 @@
 		3F6F793A2120B4A300E855DB /* BomenKaartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BomenKaartViewController.swift; sourceTree = "<group>"; };
 		3F6F793C2120B4B200E855DB /* BoomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomDetailViewController.swift; sourceTree = "<group>"; };
 		3F6F793E2120B50D00E855DB /* BoomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomAnnotation.swift; sourceTree = "<group>"; };
-		B3C4592E21246BCF00A2E51C /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,7 @@
 				3F6F793A2120B4A300E855DB /* BomenKaartViewController.swift */,
 				3F6F793C2120B4B200E855DB /* BoomDetailViewController.swift */,
 				3F6F793E2120B50D00E855DB /* BoomAnnotation.swift */,
-				B3C4592E21246BCF00A2E51C /* Localizable.strings */,
+				3F35A044212470580065CFF4 /* Localizable.strings */,
 			);
 			path = Werkstuk2_Kevin_Rousseeuw;
 			sourceTree = "<group>";
@@ -125,6 +131,8 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
+				fr,
 			);
 			mainGroup = 3F5029ED211DE76900098161;
 			productRefGroup = 3F5029F7211DE76900098161 /* Products */;
@@ -141,7 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3C4592F21246BCF00A2E51C /* Localizable.strings in Resources */,
+				3F35A042212470580065CFF4 /* Localizable.strings in Resources */,
 				3F502A07211DE76A00098161 /* LaunchScreen.storyboard in Resources */,
 				3F502A04211DE76A00098161 /* Assets.xcassets in Resources */,
 				3F59928D212213B800621655 /* References.rtf in Resources */,
@@ -168,10 +176,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		3F35A044212470580065CFF4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F35A043212470580065CFF4 /* en */,
+				3F35A045212470600065CFF4 /* nl */,
+				3F35A046212470620065CFF4 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		3F5029FD211DE76900098161 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3F5029FE211DE76900098161 /* Base */,
+				3F35A03E212470000065CFF4 /* nl */,
+				3F35A0402124700A0065CFF4 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -180,6 +200,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F502A06211DE76A00098161 /* Base */,
+				3F35A03F212470000065CFF4 /* nl */,
+				3F35A0412124700A0065CFF4 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -191,6 +213,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -248,6 +271,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

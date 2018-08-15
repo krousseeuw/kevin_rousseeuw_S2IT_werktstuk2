@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Werkstuk2_Kevin_Rousseeuw
+
+  Created by Emenka on 15/08/2018.
+  Copyright © 2018 student. All rights reserved.
+  Default Language is Dutch, even in English
+*/
+
+"apiUrl"="https://opendata.brussel.be/api/records/1.0/search/?dataset=remarkable-trees&rows=20"
+"lastModified"="Dernière mise à jour"
+"refresh"="Rafraîchir"
+"description"="La description"
+"circumference"="Circonférence"
+"diameter"="Diamètre de la couronne"
+"address"="Adresse"

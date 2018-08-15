@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Adres"; ObjectID = "2SB-Ec-cAo"; */
+"2SB-Ec-cAo.text" = "Adres";
+
+/* Class = "UILabel"; text = "Label: "; ObjectID = "2lY-Le-fYX"; */
+"2lY-Le-fYX.text" = "Label: ";
+
+/* Class = "UILabel"; text = "Omtrek: "; ObjectID = "3Ba-sS-UZs"; */
+"3Ba-sS-UZs.text" = "Omtrek: ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4BD-0q-WaK"; */
+"4BD-0q-WaK.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "71l-1F-yoO"; */
+"71l-1F-yoO.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Refresh"; ObjectID = "7pO-Iy-bYg"; */
+"7pO-Iy-bYg.normalTitle" = "Refresh";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "CQW-PP-RR6"; */
+"CQW-PP-RR6.text" = "Label";
+
+/* Class = "UILabel"; text = "Last modified: "; ObjectID = "EIz-sI-SPE"; */
+"EIz-sI-SPE.text" = "Last modified: ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GbM-QP-5ES"; */
+"GbM-QP-5ES.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "J5x-GY-ST1"; */
+"J5x-GY-ST1.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Soc-1m-ydq"; */
+"Soc-1m-ydq.text" = "Label";
+
+/* Class = "UILabel"; text = "Diameter v.d. Kroon: "; ObjectID = "V9o-jf-s5e"; */
+"V9o-jf-s5e.text" = "Diameter v.d. Kroon: ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cJh-cf-ipf"; */
+"cJh-cf-ipf.text" = "Label";
+
+/* Class = "UILabel"; text = "Beschrijving"; ObjectID = "mHA-rp-LLQ"; */
+"mHA-rp-LLQ.text" = "Beschrijving";
+
+/* Class = "UILabel"; text = "Hoogte:"; ObjectID = "ywE-9e-WYF"; */
+"ywE-9e-WYF.text" = "Hoogte:";

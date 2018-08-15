@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Werkstuk2_Kevin_Rousseeuw
+
+  Created by Emenka on 15/08/2018.
+  Copyright © 2018 student. All rights reserved.
+  Default Language is Dutch, even in English
+*/
+
+"apiUrl"="https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20"
+"lastModified"="Laatst bijgewerkt"
+"refresh"="Refresh"
+"description"="Beschrijving"
+"circumference"="Omtrek"
+"diameter"="Diameter v.d. Kroon"
+"address"="Adres"
