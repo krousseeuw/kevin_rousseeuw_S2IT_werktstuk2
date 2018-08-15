@@ -6,11 +6,23 @@
   Copyright © 2018 student. All rights reserved.
   Default Language is Dutch, even in English
 */
+"apiUrl"="https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20";
+"lastModified"="Laatst bijgewerkt";
+"refresh"="Refresh";
+"description"="Beschrijving";
+"circumference"="Omtrek";
+"height"="Hoogte";
+"diameter"="Diameter v.d. Kroon";
+"address"="Adres";
 
-"apiUrl"="https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20"
-"lastModified"="Laatst bijgewerkt"
-"refresh"="Refresh"
-"description"="Beschrijving"
-"circumference"="Omtrek"
-"diameter"="Diameter v.d. Kroon"
-"address"="Adres"
+"id"="id";
+"soort"="soort";
+"gemeente"="gemeente";
+"landschap"="landschap";
+"straat"="straat";
+"status"="status";
+"positie"="positie";
+"beplanting"="beplanting";
+"diameter_van_de_kroon"="diameter_van_de_kroon";
+"hoogte"="hoogte";
+"omtrek"="omtrek";

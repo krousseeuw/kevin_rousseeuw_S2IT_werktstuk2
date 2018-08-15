@@ -55,7 +55,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last modified: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIz-sI-SPE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,7 +68,7 @@
                         <outlet property="bomenMapView" destination="d68-oU-6x3" id="Siy-cB-06M"/>
                         <outlet property="laatsteRefreshLbl" destination="EIz-sI-SPE" id="t7G-hN-b22"/>
                         <outlet property="laatsteWijzigingLabel" destination="EIz-sI-SPE" id="Xrc-3V-dHF"/>
-                        <outlet property="refreshBtn" destination="7pO-Iy-bYg" id="zBL-ow-QSF"/>
+                        <outlet property="refreshBtn" destination="7pO-Iy-bYg" id="Wq3-cw-NdV"/>
                         <segue destination="c17-Rt-SoV" kind="show" identifier="naarDetail" id="NC0-55-kPd"/>
                     </connections>
                 </viewController>
@@ -178,19 +178,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Beschrijving" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFf-yS-lq1">
+                                <rect key="frame" x="16" y="151" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.16683912309999999" green="0.65518405570000005" blue="0.075213886019999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.16683912309999999" green="0.65518405570000005" blue="0.075213886019999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="GWH-nK-Goo"/>
                     </view>
                     <connections>
+                        <outlet property="adresLbl" destination="2SB-Ec-cAo" id="NKz-9C-Tdq"/>
                         <outlet property="beplandingLbl" destination="2lY-Le-fYX" id="8GL-I1-yWA"/>
-                        <outlet property="diameterLbl" destination="J5x-GY-ST1" id="xrx-G5-L6g"/>
+                        <outlet property="beplantingValueLbl" destination="2lY-Le-fYX" id="tzw-YX-S1d"/>
+                        <outlet property="beschrijvingLbl" destination="gFf-yS-lq1" id="k45-dj-3MW"/>
+                        <outlet property="diameterLbl" destination="V9o-jf-s5e" id="yL4-54-zCE"/>
+                        <outlet property="diameterValueLbl" destination="J5x-GY-ST1" id="J11-Ia-sbi"/>
                         <outlet property="gemeenteLbl" destination="Soc-1m-ydq" id="c9U-VI-ONw"/>
-                        <outlet property="hoogteLbl" destination="cJh-cf-ipf" id="Zka-Xs-YS7"/>
+                        <outlet property="gemeenteValueLbl" destination="Soc-1m-ydq" id="lIA-eE-qCf"/>
+                        <outlet property="hoogteLbl" destination="ywE-9e-WYF" id="wVu-j8-oTM"/>
+                        <outlet property="hoogteValueLbl" destination="cJh-cf-ipf" id="FY0-sv-TZ7"/>
                         <outlet property="landschapLbl" destination="71l-1F-yoO" id="cwD-WT-0am"/>
-                        <outlet property="omtrekLbl" destination="CQW-PP-RR6" id="lDt-xm-7G9"/>
+                        <outlet property="landschapValueLbl" destination="71l-1F-yoO" id="iga-F7-ami"/>
+                        <outlet property="omtrekLbl" destination="3Ba-sS-UZs" id="EMm-HR-yHZ"/>
+                        <outlet property="omtrekValueLbl" destination="CQW-PP-RR6" id="6on-SV-K5Q"/>
                         <outlet property="soortNaamLbl" destination="4BD-0q-WaK" id="DO6-vI-dKB"/>
                         <outlet property="straatLbl" destination="GbM-QP-5ES" id="u4G-Lv-tEU"/>
+                        <outlet property="straatValueLbl" destination="GbM-QP-5ES" id="TPN-GB-XGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nc3-7l-pnb" userLabel="First Responder" sceneMemberID="firstResponder"/>

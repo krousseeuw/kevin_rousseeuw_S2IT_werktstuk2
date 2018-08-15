@@ -19,6 +19,7 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var refreshBtn: UIButton!
     @IBOutlet weak var laatsteRefreshLbl: UILabel!
     
+    
     // other variables
     let manager = CLLocationManager()
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -27,17 +28,33 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var laatsteRefresh: Date?
     
     // Om gemakkelijk records groter te maken
-    var recordLimiet = 20
     var apiUrl: URL?
     //var apiUrl = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
     
-    @IBAction func refreshButtonClick(_ sender: Any) {
-        laatsteRefresh = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .short
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        // voeg localisatie toe op eind
+        setLocalizedText()
+        let url = NSLocalizedString("apiUrl", comment: "")
+        self.apiUrl = URL(string: url)!
+        // Reference https://www.youtube.com/watch?v=UyiuX8jULF4
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        
         refreshKaart()
-        laatsteRefreshLbl.text = dateFormatter.string(from: laatsteRefresh!)
+    }
+    
+    @IBAction func refreshButtonClick(_ sender: Any) {
+        
+        refreshKaart()
+    }
+    
+    func setLocalizedText() {
+        refreshBtn.titleLabel?.text = NSLocalizedString("refresh", comment: "")
     }
     
     func refreshKaart(){
@@ -46,6 +63,13 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         mapLeegmaken()
         getBomenData()
         unlockKnop()
+        
+        laatsteRefresh = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        let modifiedString = NSLocalizedString("lastModified", comment: "")
+        laatsteRefreshLbl.text = modifiedString + " " + dateFormatter.string(from: laatsteRefresh!)
     }
     
     func lockKnop() {
@@ -74,22 +98,9 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.bomenMapView.removeAnnotations(allAnnotations)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        // voeg localisatie toe op eind
-        
-        self.apiUrl = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=" + String(self.recordLimiet))!
-        // Reference https://www.youtube.com/watch?v=UyiuX8jULF4
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
-        
-        refreshKaart()
-    }
-
+    
+    
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -123,19 +134,31 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
                             if let fields = record["fields"] as? [String: Any]{
                                 let boom = Boom(context: self.managedContext)
                                 
-                                boom.id = (fields["id"] as! Int32)
-                                boom.soort = (fields["soort"] as? String)
-                                boom.gemeente = (fields["gemeente"] as? String)
-                                boom.landschap = (fields["landschap"] as? String)
-                                boom.straat = (fields["straat"] as? String)
-                                boom.status = (fields["status"] as? String)
-                                boom.positie = (fields["positie"] as? String)
-                                boom.beplanting = (fields["omtrek"] as? String)
-                                boom.omtrek = (fields["omtrek"] as! Int16)
-                                boom.hoogte = (fields["hoogte"] as? String)
+                                let idField = NSLocalizedString("id", comment: "")
+                                let soortField = NSLocalizedString("soort", comment: "")
+                                let gemeenteField = NSLocalizedString("gemeente", comment: "")
+                                let landschapField = NSLocalizedString("landschap", comment: "")
+                                let straatField = NSLocalizedString("straat", comment: "")
+                                let statusField = NSLocalizedString("status", comment: "")
+                                let positieField = NSLocalizedString("postie", comment: "")
+                                let beplantingField = NSLocalizedString("beplanting", comment: "")
+                                let diameterField = NSLocalizedString("diameter_van_de_kroon", comment: "")
+                                let hoogteField = NSLocalizedString("hoogte", comment: "")
+                                let omtrekField = NSLocalizedString("omtrek", comment: "")
                                 
-                                if fields["diameter_van_de_kroon"] != nil {
-                                    boom.diameter_van_de_kroon = (fields["diameter_van_de_kroon"] as? Int16)!
+                                boom.id = (fields[idField] as! Int32)
+                                boom.soort = (fields[soortField] as? String)
+                                boom.gemeente = (fields[gemeenteField] as? String)
+                                boom.landschap = (fields[landschapField] as? String)
+                                boom.straat = (fields[straatField] as? String)
+                                boom.status = (fields[statusField] as? String)
+                                boom.positie = (fields[positieField] as? String)
+                                boom.beplanting = (fields[beplantingField] as? String)
+                                boom.omtrek = (fields[omtrekField] as! Int16)
+                                boom.hoogte = (fields[hoogteField] as? String)
+                                
+                                if fields[diameterField] != nil {
+                                    boom.diameter_van_de_kroon = (fields[diameterField] as? Int16)!
                                 }
                                 self.appDelegate.saveContext()
                             }

@@ -35,11 +35,13 @@
 		3F502A01211DE76900098161 /* Werkstuk2_Kevin_Rousseeuw.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Werkstuk2_Kevin_Rousseeuw.xcdatamodel; sourceTree = "<group>"; };
 		3F502A03211DE76A00098161 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F502A06211DE76A00098161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3F502A08211DE76A00098161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F59928C212213B800621655 /* References.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = References.rtf; sourceTree = "<group>"; };
 		3F6F793A2120B4A300E855DB /* BomenKaartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BomenKaartViewController.swift; sourceTree = "<group>"; };
 		3F6F793C2120B4B200E855DB /* BoomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomDetailViewController.swift; sourceTree = "<group>"; };
 		3F6F793E2120B50D00E855DB /* BoomAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomAnnotation.swift; sourceTree = "<group>"; };
+		B3C4593221247AE900A2E51C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
+		B3C4593321247AEB00A2E51C /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = nl; path = nl.lproj/Info.plist; sourceTree = "<group>"; };
+		B3C4593421247AEC00A2E51C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,7 @@
 				3F5029FD211DE76900098161 /* Main.storyboard */,
 				3F502A03211DE76A00098161 /* Assets.xcassets */,
 				3F502A05211DE76A00098161 /* LaunchScreen.storyboard */,
-				3F502A08211DE76A00098161 /* Info.plist */,
+				B3C4593121247AE400A2E51C /* Info.plist */,
 				3F502A00211DE76900098161 /* Werkstuk2_Kevin_Rousseeuw.xcdatamodeld */,
 				3F6F793A2120B4A300E855DB /* BomenKaartViewController.swift */,
 				3F6F793C2120B4B200E855DB /* BoomDetailViewController.swift */,
@@ -204,6 +206,16 @@
 				3F35A0412124700A0065CFF4 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B3C4593121247AE400A2E51C /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C4593221247AE900A2E51C /* en */,
+				B3C4593321247AEB00A2E51C /* nl */,
+				B3C4593421247AEC00A2E51C /* fr */,
+			);
+			name = Info.plist;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

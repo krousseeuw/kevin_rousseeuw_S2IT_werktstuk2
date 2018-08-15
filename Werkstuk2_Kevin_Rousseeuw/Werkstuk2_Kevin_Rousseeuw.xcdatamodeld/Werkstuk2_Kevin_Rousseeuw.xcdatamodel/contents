@@ -14,6 +14,6 @@
         <attribute name="straat" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Boom" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Boom" positionX="81" positionY="-16" width="128" height="208"/>
     </elements>
 </model>
