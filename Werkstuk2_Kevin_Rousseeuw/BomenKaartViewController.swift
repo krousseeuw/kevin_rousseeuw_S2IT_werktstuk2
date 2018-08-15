@@ -2,8 +2,8 @@
 //  BomenLijstViewController.swift
 //  Werkstuk2_Kevin_Rousseeuw
 //
-//  Created by student on 12/08/2018.
-//  Copyright © 2018 student. All rights reserved.
+//  Created by Kevin Rousseeuw on 12/08/2018.
+//  Copyright © 2018 Kevin Rousseeuw. All rights reserved.
 //
 
 import UIKit
@@ -58,6 +58,7 @@ class BomenKaartViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     func setLocalizedText() {
         refreshBtn.titleLabel?.text = NSLocalizedString("refresh", comment: "")
+        self.title = NSLocalizedString("treelist", comment: "")
     }
     
     func refreshKaart(){
